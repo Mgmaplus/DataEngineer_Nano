@@ -2,8 +2,6 @@
 
 ### Introduction
 
-![alt_text](staging.png "Sparkify Staging Tables in DWH")
-
 Set of python scripts to create a star-schema analytical tables withing Redshift and run queries with songplay analysis in mind by having load data from s3 into staging tables in Redshift to improve performance and have a reliable, scalable and worry-free storage solution.
 
 By having both staging tables and analytical tables we can load large amounts of data with high efficiency and still be able to contain a star-schema in place to do lots of aggregations on data such as number of songs played per user or most played artists during certain a time period. 
@@ -17,7 +15,7 @@ For analysis on songplay purposes this structure leads to fast grasping of insig
 
 ### ERD
 
-
+![alt_text](staging.png "Sparkify Staging Tables in DWH")
 
 ![alt text](erd.png "Sparkify Star Schema ERD in Redshift cluster")
 
@@ -88,4 +86,5 @@ EXAMPLE QUERIES
             17	493
             15	477
             14	43
+
 
