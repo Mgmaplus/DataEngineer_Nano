@@ -21,13 +21,18 @@ For analysis on songplay purposes this structure leads to fast grasping of insig
 The schema is generated from two types of source files: **Song Data** and **Log Data**. 
 
 These must be in json format. 
+
 The ETL pipeline uses a TCP port in ec2 to issue copy commands that will read partitioned files on s3 to the staging_events and staging_songs tables available on a Redshift cluster through AWS.
+
 In the loading process we specify for the **staging_events** table the json_file_path and the timeformat for our timestamp column. This helps load the right data from the json files and avoid transforming the timestamp values on the insert commands when loading from staging to our analytical tables.
+
 For the **staging_songs** table load we specify in the copy commands the 'auto' option to read jsons since a json_file_path is not necessary.
 We have to specify the region us-west-2 to reach our s3 bucket **udacity-dend**.
 
 >> LOG_DATA='s3://udacity-dend/log_data'
+
 >> LOG_JSONPATH='s3://udacity-dend/log_json_path.json'
+
 >> SONG_DATA='s3://udacity-dend/song_data'
 
 ## CONTENT
@@ -46,7 +51,7 @@ Code to use IAC to create a Redshift cluster and its corresponding IAM role.
 
 ## RUN
 
-A prequesite is to have the Redshift cluster available in the us-west-2 region. Make sure you update the dwh.cfg file with your AWS keys or if already running a cluster copy the cluster endpoint and the arn role to the config file. Is worth mentioning that all config variables under CLUSTER, IAM ROLE AND S3 must be updated independent if you use the redshift_cluster.ipynb script to create a cluster.
+A prequesite is to have the Redshift cluster available in the us-west-2 region. Make sure you update the dwh.cfg file with your AWS keys or if already running a cluster copy the cluster endpoint and the arn role to the config file. Is worth mentioning that all config variables under CLUSTER, IAM ROLE AND S3 must be updated int he congif file independent of your choice to use the redshift_cluster.ipynb script to create a cluster.
 
 #### ETL process 
 **Must run creates_tables.py first in order to create dwh database and the required staging and analytical tables**. The tables and sql commands are defined in the sql_queries python script.
