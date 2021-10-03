@@ -1,5 +1,7 @@
 # SPARKIFY Data Warehouse on the cloud using Redshift, EC2 and S3.
 
+### Introduction
+
 Set of python scripts to create a star-schema analytical tables withing Redshift and run queries with songplay analysis in mind by having load data from s3 into staging tables in Redshift to improve performance and have a reliable, scalable and worry-free storage solution.
 
 By having both staging tables and analytical tables we can load large amounts of data with high efficiency and still be able to contain a star-schema in place to do lots of aggregations on data such as number of songs played per user or most played artists during certain a time period. 
@@ -12,9 +14,19 @@ Through simplified queries Sparkify can create smart dashboards on the fly on cu
 For analysis on songplay purposes this structure leads to fast grasping of insights and trends without worrying on data integrity or redudancy of query results. 
 
 ### ERD
-![alt text](staging.png "Sparkify Staging Tables in DWH")
+
+![alt_text](staging.png "Sparkify Staging Tables in DWH")
+
+
+
+
+
+
+
 
 ![alt text](erd.png "Sparkify Star Schema ERD in Redshift cluster")
+
+
 
 ## REQUIREMENTS
 
@@ -29,9 +41,9 @@ In the loading process we specify for the **staging_events** table the json_file
 For the **staging_songs** table load we specify in the copy commands the 'auto' option to read jsons since a json_file_path is not necessary.
 We have to specify the region us-west-2 to reach our s3 bucket **udacity-dend**.
 
->> LOG_DATA='s3://udacity-dend/log_data'
+#### S3 datasets 
 
->> LOG_JSONPATH='s3://udacity-dend/log_json_path.json'
+>> LOG_DATA='s3://udacity-dend/log_data'
 
 >> SONG_DATA='s3://udacity-dend/song_data'
 
@@ -79,3 +91,4 @@ EXAMPLE QUERIES
             17	493
             15	477
             14	43
+
