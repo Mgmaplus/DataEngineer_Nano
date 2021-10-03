@@ -72,19 +72,19 @@ EXAMPLE QUERIES
 -  Top 5 listeners
 >>     
         first_name	count
-            Chloe	703
-            Tegan	665
-            Kate	557
-            Lily	521
-            Aleena	397
+            Chloe	1039
+            Tegan	976
+            Kate	829
+            Lily	764
+            Aleena	563
 
 - Most played time of the day
 >>        
           hour	count
-            16	541
-            18	497
-            17	493
-            15	477
-            14	43
+            16	626
+            18	579
+            15	577
+            17	572
+            14	504
 
 
