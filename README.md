@@ -13,6 +13,7 @@ For analysis on songplay purposes this structure leads to fast grasping of insig
 
 ### ERD
 ![alt text](staging.png "Sparkify Staging Tables in DWH")
+
 ![alt text](erd.png "Sparkify Star Schema ERD in Redshift cluster")
 
 ## REQUIREMENTS
@@ -21,13 +22,13 @@ The schema is generated from two types of source files: **Song Data** and **Log 
 
 These must be in json format. 
 The ETL pipeline uses a TCP port in ec2 to issue copy commands that will read partitioned files on s3 to the staging_events and staging_songs tables available on a Redshift cluster through AWS.
-In the loading process we specify for the *staging_events* table the json_file_path and the timeformat for our timestamp column. This helps load the right data from the json files and avoid transforming the timestamp values on the insert commands when loading from staging to our analytical tables.
-For the *staging_songs* table load we specify in the copy commands the 'auto' option to read jsons since a json_file_path is not necessary.
-We have to specify the region us-west-2 to reach our s3 bucket *udacity-dend*.
+In the loading process we specify for the **staging_events** table the json_file_path and the timeformat for our timestamp column. This helps load the right data from the json files and avoid transforming the timestamp values on the insert commands when loading from staging to our analytical tables.
+For the **staging_songs** table load we specify in the copy commands the 'auto' option to read jsons since a json_file_path is not necessary.
+We have to specify the region us-west-2 to reach our s3 bucket **udacity-dend**.
 
 >> LOG_DATA='s3://udacity-dend/log_data'
-LOG_JSONPATH='s3://udacity-dend/log_json_path.json'
-SONG_DATA='s3://udacity-dend/song_data'
+>> LOG_JSONPATH='s3://udacity-dend/log_json_path.json'
+>> SONG_DATA='s3://udacity-dend/song_data'
 
 ## CONTENT
 
