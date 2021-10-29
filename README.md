@@ -1,4 +1,4 @@
-# SPARKIFY DataLake processing with EMR and S3 storage.
+# SPARKIFY's DataLake: Processing with an AWS EMR cluster and S3 storage.
 
 ### Introduction
 
@@ -105,9 +105,11 @@ All tables will be stored in a s3 bucket in the us-west-2 region. The bucket add
 
 ### S3 bucket
 
+![alt_text](s3bucket.png "Output s3 bucket")
+
 Artist and users data is not partitioned. 
-Songs is partioned by year and artist_id. 
-Time and songplays data is partitioned by year and month.
+Songs is partioned by **year** and **artist_id**. 
+Time and songplays data is partitioned by **year** and **month**.
 
 ## TERMINATE CLUSTER
 
